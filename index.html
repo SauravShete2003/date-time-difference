@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Date and Time Difference </title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            padding-top: 50px;
+            background-color: #4158D0;
+            /* background-image: linear-gradient(43deg, #4158D0 0%, #C850C0 46%, #FFCC70 200%); */
+            background-color:dimgray;
+
+        }
+        .box {
+            width: 250px;
+            padding: 10px;
+            margin: 10px;
+            border-radius: 10px;
+        }
+        button {
+            padding: 10px 15px;
+            margin: 10px;
+            cursor: pointer;
+            background-color: black;
+            color: white;
+            border: none;
+            border-radius: 5px;
+           
+        }
+        .button:hover {
+        background-color: white;
+        color: black;
+}
+
+        
+
+        #result {
+            margin-top: 20px;
+            font-size: 18px;
+        }
+        .container{
+            background-image: linear-gradient( 180.7deg,  rgba(0,213,255,1) 2.5%, rgba(79,255,255,1) 97.7% );
+            height: 400px;
+            width: 340px;
+            margin: 20px auto;
+            border: 2px solid black;
+            border-radius: 15px;
+        }
+ 
+    </style>
+</head>
+<body>
+    <div class="container">
+      <h1>Date and Time Difference Calculator</h1>
+      <label for="startDate">Start Date:</label>
+      <input type="date" id="startDate" class="box"><br>
+
+      <label for="endDate">End Date:</label>
+      <input type="date" id="endDate"class="box">
+
+      <button onclick="calculateDifference()">Calculate Difference</button>
+
+    <div id="result">Difference</div>
+</div>
+
+    <script>
+        function calculateDifference() {
+            const startDate = new Date(document.getElementById("startDate").value);
+            const endDate = new Date(document.getElementById("endDate").value);
+            
+            const difference = endDate.getTime() - startDate.getTime();
+
+            const millisecondsInADay = 1000 * 60 * 60 * 24;
+            const daysDifference = Math.floor(difference / millisecondsInADay);
+            
+            document.getElementById("result").innerText = `Difference: ${daysDifference} days`;
+        }
+    </script>
+</body>
+</html>

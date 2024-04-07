@@ -61,10 +61,11 @@
       <label for="endDate">End Date:</label>
       <input type="date" id="endDate"class="box">
 
-      <button onclick="calculateDifference()">Calculate Difference</button>
+      <button type="button" onclick="calculateDifference()">Calculate Difference</button>
+      <button type="button" onclick="reset()">Reset</button>
 
-    <div id="result">Difference</div>
-</div>
+      <div id="result">Difference</div>
+   </div>
 
     <script>
         function calculateDifference() {
@@ -78,6 +79,11 @@
             
             document.getElementById("result").innerText = `Difference: ${daysDifference} days`;
         }
+        function reset() {
+        document.getElementById("startDate").value = ""; 
+        document.getElementById("endDate").value = "";   
+        document.getElementById("result").innerText = "Difference"; 
+    }
     </script>
 </body>
 </html>
